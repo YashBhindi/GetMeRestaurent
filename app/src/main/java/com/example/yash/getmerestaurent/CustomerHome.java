@@ -89,7 +89,10 @@ public class CustomerHome extends AppCompatActivity {
         mGoToRestaurent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // startActivity(new Intent(CustomerHome.this,CustomerGetDirection.class));
+                Intent intent1 = new Intent(CustomerHome.this, CustomerPathToRestaurent.class);
+                intent1.putExtra("restaurentId", name);
+
+                startActivity(intent1);
             }
         });
 

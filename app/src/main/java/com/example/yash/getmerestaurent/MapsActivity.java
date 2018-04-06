@@ -274,7 +274,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-  /*  @Override
+  /*  @Overr
     protected void onStop() {
         super.onStop();
         String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
