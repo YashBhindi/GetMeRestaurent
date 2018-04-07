@@ -30,6 +30,7 @@ public class RestaurentShowMenu extends AppCompatActivity {
     private DatabaseReference restaurent  = FirebaseDatabase.getInstance().getReference("Users").child("Restaurents");
     private FirebaseUser user;
     private RestaurentMenuAddItemBean restaurentMenuAddItemBean;
+    private Button mBack;
     RecyclerView recyclerView;
     RestaurentMenuAdapter restaurentMenuAdapter;
     List<RestaurentMenuAddItemBean> menuAddItemBeanList;
@@ -69,6 +70,7 @@ public class RestaurentShowMenu extends AppCompatActivity {
 
         mAddItem=findViewById(R.id.addItem);
         recyclerView=findViewById(R.id.recycleView);
+        mBack=findViewById(R.id.mback);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         menuAddItemBeanList=new ArrayList<>();
 
@@ -80,6 +82,13 @@ public class RestaurentShowMenu extends AppCompatActivity {
                 finish();
                 return;
 
+            }
+        });
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RestaurentShowMenu.this,RestaurentHome.class));
+                finish();
             }
         });
     }

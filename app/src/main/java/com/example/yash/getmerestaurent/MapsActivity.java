@@ -45,14 +45,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     GoogleApiClient googleApiClient;
     Location mLocation,pick;
     LocationRequest locationRequest;
-    Button showRestaurent;
+    Button showRestaurent,mLogout;
     Marker restaurentMarker[];
-
+    RestaurentBean rBean=new RestaurentBean();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         showRestaurent=findViewById(R.id.showRestaurent);
+        mLogout=findViewById(R.id.logout);
 
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -84,6 +85,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 showRestaurent.setText("Showing near by restaurents");
 
                 getRestaurents();
+                mLogout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        DatabaseReference customer = FirebaseDatabase.getInstance().getReference().child("Customer");
+
+                        GeoFire geoFire = new GeoFire(customer);
+                        geoFire.removeLocation(uid, new GeoFire.CompletionListener() {
+                            @Override
+                            public void onComplete(String key, DatabaseError error) {
+
+                            }
+                        });
+                    }
+                });
             }
         });
 
@@ -141,8 +157,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final Marker[] restaurentMarker = new Marker[restaurentFoundId.size()];
         for (String id : restaurentFoundId) {
             Toast.makeText(getApplicationContext(),id,Toast.LENGTH_SHORT).show();
+            /*DatabaseReference r=FirebaseDatabase.getInstance().getReference().child("Users").child("Restaurents").child(id).child("General");
+            r.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    //    studentList.clear();
+                    for (DataSnapshot student_snapshot : dataSnapshot.getChildren()) {
+                        rBean = student_snapshot.getValue(RestaurentBean.class);
+                        break;
+                    }
 
-            DatabaseReference reference= FirebaseDatabase.getInstance().getReference().child("Restaurent").child(id).child("l");
+                }@Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });*/
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Restaurent").child(id).child("l");
+
 
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -159,7 +190,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                     LatLng loc=new LatLng(lat,lon);
 
-                    restaurentMarker[count] =mMap.addMarker(new MarkerOptions().position(loc).snippet(String.valueOf(count)).title("Restaurent").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                    restaurentMarker[count] =mMap.addMarker(new MarkerOptions().position(loc).snippet(String.valueOf(count)).title("Resraurent").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
                     count++;
                 }
 

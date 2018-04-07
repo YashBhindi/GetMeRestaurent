@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/res7"
     tools:context="com.example.yash.getmerestaurent.RestaurentSignup">
 
 
@@ -11,12 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:paddingRight="90dp"
+        android:paddingLeft="24dp"
+        android:layout_marginTop="45dp"
         >
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <EditText
                 android:id="@+id/restaurentName"
                 android:layout_width="match_parent"
@@ -65,11 +68,10 @@
             <EditText
                 android:id="@+id/openDay"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:inputType="text"
                 android:hint="Open Day" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -77,19 +79,17 @@
             <EditText
                 android:id="@+id/closeDay"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:inputType="text"
                 android:hint="Close Day" />
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-
             <EditText
                 android:id="@+id/openTime"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:inputType="time"
                 android:hint="Open Time" />
 
@@ -97,12 +97,10 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-
             <EditText
                 android:id="@+id/closeTime"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:inputType="time"
                 android:hint="Close Time" />
 
@@ -111,11 +109,11 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+          android:background="@drawable/btn"
             android:id="@+id/next"
             android:text="Next"/>
-
 
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

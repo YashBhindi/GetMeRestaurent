@@ -75,6 +75,8 @@ public class CustomerHome extends AppCompatActivity {
         ot=findViewById(R.id.ot);
 
         rv=findViewById(R.id.rv);
+
+
         rv.setLayoutManager(new LinearLayoutManager(this));
         menuAddItemBeanList=new ArrayList<>();
 

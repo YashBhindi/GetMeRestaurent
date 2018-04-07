@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/res2"
+    android:orientation="vertical"
     tools:context="com.example.yash.getmerestaurent.MainActivity">
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/restaurent"
-            android:text="Restaurent"
-            />
-        <Button
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:text="Restaurent"/>
+
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/cutomer"
-            android:text="Customer"
-            />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:text="Customer"/>
 
 
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
