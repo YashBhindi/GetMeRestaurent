@@ -154,6 +154,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
     private  void getRestaurentsMarker(){
+        count=0;
         final Marker[] restaurentMarker = new Marker[restaurentFoundId.size()];
         for (String id : restaurentFoundId) {
             Toast.makeText(getApplicationContext(),id,Toast.LENGTH_SHORT).show();
